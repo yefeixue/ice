@@ -1,0 +1,21 @@
+<icegrid>
+    <application name="PrinterApplication">
+        <node name="node1">
+            <server id="PrinterServer" exe="java" activation="on-demand">
+              	<adapter name="PrinterAdapter" endpoints="tcp -h 127.0.0.1">
+								  <object identity="SimplePrinter" type="::Demo::Printer" property="Identity"/>
+								</adapter>
+                <option>-jar</option>  
+                <option>D:\code\Spring\testIceGrid_2\target\testIceGrid-0.0.1-SNAPSHOT.jar</option>   
+                <property name="Ice.Trace.Network" value="1"/>
+                <properties>  
+                    <property name="Ice.ThreadPool.Server.SizeMax" value="1" />  
+                </properties>  
+				        <property name="IceMX.Metrics.Debug.GroupBy" value="id"/>
+				        <property name="IceMX.Metrics.Debug.Disabled" value="1"/>
+				        <property name="IceMX.Metrics.ByParent.GroupBy" value="parent"/>
+				        <property name="IceMX.Metrics.ByParent.Disabled" value="1"/>                                
+            </server>
+        </node>
+    </application>
+</icegrid>
